@@ -9,9 +9,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 app.get("/", (req, res) => {
   res.send("Tatkal Backend Running");
+});
+
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
 });
 app.post("/bookTicket", async (req,res)=>{
 
@@ -35,23 +38,27 @@ app.post("/cancelTicket", async (req,res)=>{
   });
 
 });
-app.post("/joinQueue", async (req,res)=>{
+app.post("/bookTicket", async (req,res)=>{
 
-  const userId = req.body.userId;
+  const data = req.body;
 
-  await addUserToQueue(userId);
-
-  const position = await getQueueLength();
+  await db.collection("bookings").add(data);
 
   res.json({
-    message: "Joined Queue",
-    queue_position: position
+    message: "Ticket booked successfully"
   });
 
 });
+app.post("/cancelTicket", async (req,res)=>{
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+  const bookingId = req.body.bookingId;
+
+  await db.collection("bookings").doc(bookingId).delete();
+
+  res.json({
+    message: "Ticket cancelled"
+  });
+
 });
 app.post("/joinQueue", async (req,res)=>{
 

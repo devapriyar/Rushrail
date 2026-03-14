@@ -1,0 +1,110 @@
+{
+  "Trains": [
+    {
+      "train_id": "train1",
+      "train_name": "Kerala Express",
+      "source": "Delhi",
+      "destination": "Kochi",
+      "available_seats": 100
+    },
+    {
+      "train_id": "train2",
+      "train_name": "Rajdhani Express",
+      "source": "Delhi",
+      "destination": "Mumbai",
+      "available_seats": 80
+    },
+    {
+      "train_id": "train3",
+      "train_name": "Duronto Express",
+      "source": "Kolkata",
+      "destination": "Delhi",
+      "available_seats": 120
+    },
+    {
+      "train_id": "train4",
+      "train_name": "Shatabdi Express",
+      "source": "Chennai",
+      "destination": "Bangalore",
+      "available_seats": 60
+    },
+    {
+      "train_id": "train5",
+      "train_name": "Garib Rath",
+      "source": "Mumbai",
+      "destination": "Delhi",
+      "available_seats": 150
+    }
+  ],
+
+  "Bookings": [
+    {
+      "booking_id": "b1",
+      "user_id": "user101",
+      "train_id": "train1",
+      "seat_number": 23,
+      "booking_time": "2026-03-14T09:10:00Z"
+    },
+    {
+      "booking_id": "b2",
+      "user_id": "user102",
+      "train_id": "train1",
+      "seat_number": 24,
+      "booking_time": "2026-03-14T09:10:10Z"
+    },
+    {
+      "booking_id": "b3",
+      "user_id": "user103",
+      "train_id": "train2",
+      "seat_number": 12,
+      "booking_time": "2026-03-14T09:11:00Z"
+    },
+    {
+      "booking_id": "b4",
+      "user_id": "user104",
+      "train_id": "train3",
+      "seat_number": 55,
+      "booking_time": "2026-03-14T09:11:30Z"
+    },
+    {
+      "booking_id": "b5",
+      "user_id": "user105",
+      "train_id": "train4",
+      "seat_number": 9,
+      "booking_time": "2026-03-14T09:12:00Z"
+    }
+  ],
+
+  "query_logs": [
+    {
+      "query_id": "q1",
+      "user_id": "user201",
+      "queue_position": 120,
+      "timestamp": "2026-03-14T09:00:00Z"
+    },
+    {
+      "query_id": "q2",
+      "user_id": "user202",
+      "queue_position": 121,
+      "timestamp": "2026-03-14T09:00:05Z"
+    },
+    {
+      "query_id": "q3",
+      "user_id": "user203",
+      "queue_position": 122,
+      "timestamp": "2026-03-14T09:00:10Z"
+    },
+    {
+      "query_id": "q4",
+      "user_id": "user204",
+      "queue_position": 123,
+      "timestamp": "2026-03-14T09:00:15Z"
+    },
+    {
+      "query_id": "q5",
+      "user_id": "user205",
+      "queue_position": 124,
+      "timestamp": "2026-03-14T09:00:20Z"
+    }
+  ]
+}
