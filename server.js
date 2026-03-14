@@ -13,6 +13,11 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Tatkal Backend Running");
 });
+=======
+
+app.get("/", (req, res) => {
+  res.send("Tatkal Backend Running");
+});
 app.post("/bookTicket", async (req,res)=>{
 
   const data = req.body;
@@ -68,6 +73,8 @@ app.post("/joinQueue", async (req,res)=>{
  });
 
 });
+
+
 app.get("/booking-status", async (req, res) => {
 
   const userId = req.query.userId;
