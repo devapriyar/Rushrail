@@ -1,5 +1,5 @@
 const redis = require("redis");
-
+const db = require("./firebase");
 const client = redis.createClient();
 
 client.on("error", (err) => {
@@ -54,6 +54,13 @@ async function startWorker() {
 
           console.log("No seats available. Added to waitlist:", user);
           await client.lPush("waitlist", user);
+            await db.collection("bookings").add({
+    userId: user,
+    train: "12627",
+    status: "WAITLIST",
+    time: new Date()
+  });
+
 
         }
 
