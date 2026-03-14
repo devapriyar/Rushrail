@@ -68,3 +68,38 @@ app.post("/joinQueue", async (req,res)=>{
  });
 
 });
+app.get("/booking-status", async (req, res) => {
+
+  const userId = req.query.userId;
+
+  const snapshot = await db.collection("bookings")
+    .where("userId", "==", userId)
+    .get();
+
+  if (snapshot.empty) {
+    return res.json({ message: "No booking found" });
+  }
+
+  const booking = snapshot.docs[0].data();
+
+  res.json({
+    userId: booking.userId,
+    train: booking.train,
+    status: booking.status
+  });
+
+});
+app.get("/queue-position", async (req, res) => {
+
+  const userId = req.query.userId;
+
+  const queue = await client.lRange("tatkal_queue", 0, -1);
+
+  const position = queue.indexOf(userId) + 1;
+
+  res.json({
+    user: userId,
+    queue_position: position
+  });
+
+});
